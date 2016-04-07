@@ -42,18 +42,33 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     
     @IBAction func coursesDropDownList(sender: UITextField) {
         
-        filterData = []
-        if sender.text! == "" {
-            filterData = data
-        } else {
-            for i in 0...data.count - 1 {
-                if data[i].rangeOfString(sender.text!) != nil || data[i].lowercaseString.rangeOfString(sender.text!) != nil {
-                    self.filterData.append(data[i])
+        allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
+            allCourses = snapshot.value as! Dictionary<String, String>
+            if sender.text! == "" {
+                self.data = self.toStringArrayFrom(allCourses)
+                self.filterData = self.data
+            } else {
+                for i in 0...self.data.count - 1 {
+                    if self.data[i].rangeOfString(sender.text!) != nil || self.data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                        self.filterData.append(self.data[i])
+                    }
                 }
             }
+            self.presentPopover(sourceController: self, sourceView: self.coursesDropDown, sourceRect: CGRectMake(0, self.coursesDropDown.bounds.height + 1, self.coursesDropDown.bounds.width, 200))
+                }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
+    
+    func toStringArrayFrom(dict:Dictionary<String,String>) -> [String]{
+        
+        var result:[String] = []
+        for key in dict{
+            result.append(key.0 + ": " + key.1)
         }
         
-        self.presentPopover(sourceController: self, sourceView: self.coursesDropDown, sourceRect: CGRectMake(0, self.coursesDropDown.bounds.height + 1, self.coursesDropDown.bounds.width, 200))
+        
+        return result
     }
     
     func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
