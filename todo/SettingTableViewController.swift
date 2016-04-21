@@ -9,9 +9,15 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
+    @IBOutlet weak var lbl_username: UITableViewCell!
+    @IBOutlet weak var lbl_password: UITableViewCell!
+    @IBOutlet weak var lbl_email: UITableViewCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lbl_username.detailTextLabel?.text = "Will chnage to username"
+        lbl_password.detailTextLabel?.text = "Will change to password"
+        lbl_email.detailTextLabel?.text = "Will change to email"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,12 +44,37 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-     
+        switch cell?.reuseIdentifier!{
+        case "username"? :
+            print("username")
+            changeInfo("username")
+        case "password"?:
+            print("password")
+            changeInfo("password")
+        case "email"?:
+            print("email")
+            changeInfo("email")
+        default:
+            print("neither")
+        }
     }
     
-    
+    private func changeInfo(section:String){
+        switch section{
+            case "username":
+                break;
+            case "password":
+                break;
+            case "email":
+                break;
+        default:
+            print("neither")
+            
+        }
 
+    }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
