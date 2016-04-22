@@ -166,39 +166,6 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
     }
 }
 
-func modifyEmail(view: AnyObject, originalEmail: String, modifiedEmail: String, password:String){
-    rootRef.changeEmailForUser(originalEmail, password: password, toNewEmail: modifiedEmail, withCompletionBlock: { error in
-        if error != nil {
-            print("There is a problem when changed email")
-            print(error)
-            // There was an error processing the request
-        } else {
-            print("Email changed successfully")
-            
-            /** TODO: Display Alert View **/
-            /** TODO: Also change email field in the userRef **/
-        }
-    })
-}
-
-func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, userEmail: String){
-    rootRef.changePasswordForUser(userEmail, fromOld: oldPassword, toNew: newPassword, withCompletionBlock: { error in
-        if error != nil {
-            print("There is a problem when changed password")
-            print(error)
-            // There was an error processing the request
-        } else {
-            print("Password changed successfully")
-            
-            /** TODO: Display Alert View **/
-            /** TODO: Also change password field in the userRef **/
-        }
-    })
-    
-}
-
-
-
 func loginUser(view: AnyObject, username: String, password:String, segueIdentifier: String) {
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         let currUserRef = getFirebase("users/" + username)

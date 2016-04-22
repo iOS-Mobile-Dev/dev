@@ -9,21 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    @IBAction func btn_changeUSer(sender: AnyObject) {
-        rootRef.changeEmailForUser("nope@gmail.com", password: "1234567",
-                               toNewEmail: "testNelma@gmail.com", withCompletionBlock: { error in
-                                if error != nil {
-                                    // There was an error processing the request
-                                    print(error)
-                                    
-                                } else {
-                                    // Email changed successfully
-                                    print("Email change successfully")
-                                }
-        })
-        var user = usersRef.childByAppendingPath("testNelma")
-        user.setValue(["email":"testNelma@gmail.com"])
-    }
 
     // UI Elements
     
