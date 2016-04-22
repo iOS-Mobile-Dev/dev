@@ -12,12 +12,17 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var lbl_username: UITableViewCell!
     @IBOutlet weak var lbl_password: UITableViewCell!
     @IBOutlet weak var lbl_email: UITableViewCell!
+    
+    let givenUser:String = (user["username"] as? String)!
+    var givenPassword:String = (user["password"] as? String)!
+    
+    var givenEmail:String = (user["email"] as? String)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lbl_username.detailTextLabel?.text = "Will chnage to username"
-        lbl_password.detailTextLabel?.text = "Will change to password"
-        lbl_email.detailTextLabel?.text = "Will change to email"
+        lbl_username.detailTextLabel?.text = user["username"]! as? String
+        lbl_email.detailTextLabel?.text = user["email"] as? String
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,36 +50,86 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
         switch cell?.reuseIdentifier!{
         case "username"? :
-            print("username")
-            changeInfo("username")
+            promptChangeInfo("username",info: givenUser)
+            
         case "password"?:
-            print("password")
-            changeInfo("password")
+            promptChangeInfo("password",info: givenPassword)
+            
+            
         case "email"?:
-            print("email")
-            changeInfo("email")
+            promptChangeInfo("email",info: givenEmail)
+            
         default:
             print("neither")
         }
+        
     }
     
-    private func changeInfo(section:String){
-        switch section{
-            case "username":
-                break;
-            case "password":
-                break;
-            case "email":
-                break;
-        default:
-            print("neither")
-            
+    /** Change info would display an alertview prompting user to enter new information **/
+    private func promptChangeInfo(section:String,info:String){
+        var tField: UITextField!
+        
+        func configurationTextField(textField: UITextField!)
+        {
+            switch section{
+                case "username":
+                    textField.placeholder = user["username"] as? String
+                    break;
+                case "password":
+                    textField.placeholder = "No seriously! I am not going to display the password"
+                    break;
+                case "email":
+                    textField.placeholder = user["email"] as? String
+                    break;
+            default:
+                print("neither")
+            }
+            tField = textField
         }
+        func handleCancel(alertView: UIAlertAction!)
+        {
+        }
+        
+        let alert = UIAlertController(title: "Enter Input", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            switch section{
+                case "username":
+                    /**  TODO: Modify username  **/
+                    
+                    break;
+                case "password":
+                    if(modifyPassword(self, oldPassword: self.givenPassword, newPassword: tField.text!, userEmail: self.givenEmail)){
+                        
+                        //Update info
+                        user["password"] = tField.text!
+                        self.givenPassword = (user["password"] as? String)!
+                    }
+                    break;
+                case "email":
+                    if(modifyEmail(self, originalEmail: self.givenEmail, modifiedEmail: tField.text!, password: self.givenPassword)){
+                        
+                        //Update Info
+                        user["email"] = tField.text!
+                        self.givenEmail = (user["email"] as? String)!
+                    }
+                    break;
+                
+            default:
+                print("neither")
+            }
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:nil))
+        self.presentViewController(alert, animated: true, completion: {
 
+        })
+        
     }
+
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

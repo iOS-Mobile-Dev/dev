@@ -9,22 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    @IBAction func btn_changeUSer(sender: AnyObject) {
-        rootRef.changeEmailForUser("nope@gmail.com", password: "1234567",
-                               toNewEmail: "testNelma@gmail.com", withCompletionBlock: { error in
-                                if error != nil {
-                                    // There was an error processing the request
-                                    print(error)
-                                    
-                                } else {
-                                    // Email changed successfully
-                                    print("Email change successfully")
-                                }
-        })
-        var user = usersRef.childByAppendingPath("testNelma")
-        user.setValue(["email":"testNelma@gmail.com"])
-    }
-
     // UI Elements
     
     @IBOutlet weak var usernameInputField: UITextField!
@@ -50,10 +34,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "enterApplication" {
-            let usernameInput = usernameInputField.text!
-            let passwordInput = passwordInputField.text!
-            // let usernameInput = "testNelma"
-            // let passwordInput = "1234567"
+//            let usernameInput = usernameInputField.text!
+//            let passwordInput = passwordInputField.text!
+             let usernameInput = "qac68"
+             let passwordInput = "password123"
             
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {
