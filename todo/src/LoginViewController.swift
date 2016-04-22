@@ -9,7 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
     // UI Elements
     
     @IBOutlet weak var usernameInputField: UITextField!
