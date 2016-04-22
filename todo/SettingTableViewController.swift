@@ -103,9 +103,11 @@ class SettingTableViewController: UITableViewController {
                     break;
                 case "password":
                     if(modifyPassword(self, oldPassword: self.givenPassword, newPassword: tField.text!, userEmail: self.givenEmail)){
+                        print("In success")
                         
                         //Update info
                         user["password"] = tField.text!
+                        print(user["password"])
                         self.givenPassword = (user["password"] as? String)!
                     }
                     break;
