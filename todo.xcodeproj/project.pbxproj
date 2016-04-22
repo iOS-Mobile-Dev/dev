@@ -13,6 +13,7 @@
 		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
 		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		C610722E1CC994CF00E43220 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610722D1CC994CF00E43220 /* SettingTableViewController.swift */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
 		CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */; };
@@ -137,6 +138,7 @@
 		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C610722D1CC994CF00E43220 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterTutoringSessionViewController.swift; path = src/RequesterTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorTutoringSessionViewController.swift; path = src/TutorTutoringSessionViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
 				CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */,
+				C610722D1CC994CF00E43220 /* SettingTableViewController.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
+				C610722E1CC994CF00E43220 /* SettingTableViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CAB160A71CB861C100C0FD41 /* RegistrationTableViewController.swift in Sources */,
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,

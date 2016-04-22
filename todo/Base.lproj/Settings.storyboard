@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Settings-->
         <scene sceneID="EkC-bl-uAH">
             <objects>
-                <tableViewController title="Settings" id="oG1-eZ-D8J" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="oG1-eZ-D8J" customClass="SettingTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" id="RRU-VT-Cps">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="wBq-tS-a8E" detailTextLabel="u3h-12-wad" rowHeight="41" style="IBUITableViewCellStyleValue1" id="0bT-TN-0nE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="username" textLabel="wBq-tS-a8E" detailTextLabel="u3h-12-wad" rowHeight="41" style="IBUITableViewCellStyleValue1" id="0bT-TN-0nE">
                                         <rect key="frame" x="0.0" y="192" width="414" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0bT-TN-0nE" id="LVS-Iz-xkd">
@@ -109,7 +109,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="BoP-KB-sdL" detailTextLabel="bae-EM-Gtp" rowHeight="41" style="IBUITableViewCellStyleValue1" id="IKg-r7-I7S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="password" textLabel="BoP-KB-sdL" detailTextLabel="bae-EM-Gtp" rowHeight="41" style="IBUITableViewCellStyleValue1" id="IKg-r7-I7S">
                                         <rect key="frame" x="0.0" y="233" width="414" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IKg-r7-I7S" id="6Bo-iU-Q2f">
@@ -133,7 +133,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="6gD-7L-Pgy" detailTextLabel="4Qo-bP-sBS" rowHeight="41" style="IBUITableViewCellStyleValue1" id="OP4-ie-nhj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="email" textLabel="6gD-7L-Pgy" detailTextLabel="4Qo-bP-sBS" rowHeight="41" style="IBUITableViewCellStyleValue1" id="OP4-ie-nhj">
                                         <rect key="frame" x="0.0" y="274" width="414" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OP4-ie-nhj" id="glJ-Es-BdH">
@@ -171,6 +171,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="lbl_email" destination="OP4-ie-nhj" id="g26-50-J91"/>
+                        <outlet property="lbl_password" destination="IKg-r7-I7S" id="1Cr-BD-Wmz"/>
+                        <outlet property="lbl_username" destination="0bT-TN-0nE" id="d7E-kT-7RQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U5-ER-JTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

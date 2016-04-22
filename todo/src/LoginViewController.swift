@@ -35,10 +35,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "enterApplication" {
-            let usernameInput = usernameInputField.text!
-            let passwordInput = passwordInputField.text!
-            // let usernameInput = "testNelma"
-            // let passwordInput = "1234567"
+//            let usernameInput = usernameInputField.text!
+//            let passwordInput = passwordInputField.text!
+             let usernameInput = "qac68"
+             let passwordInput = "password"
             
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {
